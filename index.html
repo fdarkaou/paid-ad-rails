@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Paid-ad rails: shelf digest of PeekPanda Meta and TikTok ad shelves</title>
+<meta name="description" content="Paste a PeekPanda paid-ad rails response and browse feature and advertiser shelves with standing stats, creatives, totals and a CSV. Runs in your browser.">
+<style>
+  body { font: 15px/1.5 system-ui, sans-serif; max-width: 1100px; margin: 2rem auto; padding: 0 1rem; color: #1b1b1f; }
+  textarea { width: 100%; min-height: 150px; font: 13px ui-monospace, monospace; }
+  button, select, input { padding: .45rem .9rem; margin: .5rem .5rem .5rem 0; }
+  button { cursor: pointer; }
+  table { border-collapse: collapse; width: 100%; margin-top: .5rem; font-size: 13px; }
+  th, td { border-bottom: 1px solid #ddd; padding: .35rem .5rem; text-align: left; vertical-align: top; }
+  td.n, th.n { text-align: right; white-space: nowrap; }
+  .muted { color: #777; } .err { color: #cf222e; white-space: pre-wrap; } .new { color: #1a7f37; font-weight: 600; }
+  .box { background: #f6f8fa; padding: .5rem 1rem; border-radius: 6px; margin: .5rem 0; }
+  .kpi { display: flex; flex-wrap: wrap; gap: .75rem; margin: .75rem 0; }
+  .kpi div { background: #f6f8fa; border-radius: 6px; padding: .4rem .8rem; min-width: 110px; } .kpi b { display: block; font-size: 20px; }
+  .shelf { margin: 1.25rem 0 1.75rem; }
+  .shelf h3 { margin: 0 0 .25rem; font-size: 1.05rem; }
+  .badge { display: inline-block; font-size: 11px; padding: .1rem .45rem; border-radius: 999px; background: #eef2ff; color: #3730a3; margin-right: .35rem; vertical-align: middle; }
+  .badge.adv { background: #ecfdf5; color: #065f46; }
+  .rail { display: flex; gap: .75rem; overflow-x: auto; padding: .5rem 0 1rem; scroll-snap-type: x proximity; }
+  .card { flex: 0 0 240px; scroll-snap-align: start; border: 1px solid #e5e7eb; border-radius: 10px; padding: .75rem; background: #fff; box-shadow: 0 1px 2px rgba(0,0,0,.04); }
+  .card .meta { font-size: 12px; color: #555; margin: .25rem 0; }
+  .card .hook { font-size: 13px; margin: .4rem 0; min-height: 2.6em; }
+  .card a { font-size: 12px; }
+  .standing { font-size: 13px; color: #444; margin: .35rem 0 .6rem; }
+  pre { background: #f6f8fa; padding: .75rem; overflow-x: auto; font-size: 13px; }
+  footer { margin-top: 2.5rem; font-size: 13px; color: #555; }
+  a { color: #0969da; }
+</style>
+</head>
+<body>
+<h1>Paid-ad rails</h1>
+<p>Paste a PeekPanda paid-ad rails response and this page lays out the feature shelves (launched this week, still live after 90 days) and per-advertiser shelves with standing stats and creatives. Nothing leaves your browser.</p>
+<textarea id="in" spellcheck="false" placeholder='{"generatedAt":"...","rails":[...],"totals":{...}}'></textarea>
+<p class="muted">Optional: paste a report you saved earlier (CLI <code>--format json</code> or a <code>--state</code> file) to see what changed since then.</p>
+<textarea id="prev" spellcheck="false" style="min-height:60px"></textarea>
+<div>
+  <button id="go">Show</button>
+  <button id="ex">Load example data</button>
+  <button id="csv" disabled>Download CSV</button>
+</div>
+<div id="err" class="err"></div>
+<div id="out"></div>
+
+<h2>Where to get the JSON</h2>
+<p>The input comes from <a href="https://peekpanda.com">PeekPanda</a>, an iOS competitor catalogue that keeps dated Meta and TikTok ad-library observations. Call:</p>
+<pre>curl --get 'https://api.peekpanda.com/v1/paid-ads/rails' \
+  --header "Authorization: Bearer $PEEKPANDA_TOKEN" \
+  --header 'x-genviral-tenancy: personal'</pre>
+<p>Over MCP this is the <code>get_ads</code> action <code>rails</code>. You need a PeekPanda account and an API key; the <a href="https://peekpanda.com/docs/paid-ad-rails">paid-ad rails reference</a> lists every field. Related: <a href="https://peekpanda.com/docs/paid-ads-library">paid ads library</a> and <a href="https://peekpanda.com/docs/search-paid-ads">search paid ads</a>. The command-line version on <a href="https://github.com/fdarkaou/paid-ad-rails">GitHub</a> makes the call for you, keeps a weekly diff and can post to Slack or Discord.</p>
+<p class="muted">These figures describe the ads PeekPanda collected. They are not spend, reach or performance, and a longer run does not prove an ad works.</p>
+<footer>MIT licensed sample. Example data is made up and is not real advertisers or apps.</footer>
+
+<script type="module">
+import { toReport, diff, diffIsEmpty, toCsv, truncate } from './rails.js';
+const $ = (id) => document.getElementById(id);
+let rep = null;
+const esc = (s) => String(s ?? '').replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+const fmt = (n) => (n == null ? '—' : Number(n).toLocaleString('en-US'));
+const pct = (x) => (x == null ? '—' : `${Math.round(x * 100)}%`);
+const days = (n) => (n == null ? '—' : `${n}d`);
+const dayOf = (s) => (s ? String(s).slice(0, 10) : '—');
+
+function mixText(m) {
+  if (!m) return '—';
+  return ['video', 'image', 'carousel', 'dynamic', 'unknown'].filter((k) => (m[k] ?? 0) > 0).map((k) => `${k} ${m[k]}`).join(', ') || '—';
+}
+
+function diffHtml(d) {
+  if (!d) return '';
+  const L = [];
+  if (d.totals?.length) L.push(`Totals: ${d.totals.map((x) => `${esc(x.label)} ${x.key === 'stillRunningAt30Days' ? `${pct(x.from)} → ${pct(x.to)}` : `${fmt(x.from)} → ${fmt(x.to)}`}`).join('; ')}`);
+  if (d.shelvesAdded?.length) L.push(`<span class="new">New shelves:</span> ${d.shelvesAdded.map((s) => esc(s.title || s.key)).join(', ')}`);
+  if (d.shelvesGone?.length) L.push(`Shelves gone: ${d.shelvesGone.map((s) => esc(s.title || s.key)).join(', ')}`);
+  if (d.totalItemsMoves?.length) L.push(`Shelf sizes: ${d.totalItemsMoves.slice(0, 8).map((m) => `${esc(m.title || m.key)} ${fmt(m.from)} → ${fmt(m.to)}`).join('; ')}`);
+  for (const m of (d.standingMoves || []).slice(0, 6)) L.push(`${esc(m.name)}: ${esc(m.parts.join(', '))}`);
+  for (const c of (d.creativeChanges || []).slice(0, 6)) {
+    const bits = [];
+    if (c.added.length) bits.push(`+${c.added.length}`);
+    if (c.gone.length) bits.push(`−${c.gone.length}`);
+    L.push(`${esc(c.title || c.key)} creatives ${bits.join('/')}`);
+  }
+  return `<div class="box"><strong>Since the saved report</strong>${diffIsEmpty(d) ? '<p>Nothing changed.</p>' : L.map((x) => `<p>${x}</p>`).join('')}</div>`;
+}
+
+function card(it) {
+  const url = it.sourceUrl ? `<a href="${esc(it.sourceUrl)}" target="_blank" rel="noopener">archive ${esc(it.archiveId || '')}</a>` : `<span class="muted">${esc(it.archiveId || '—')}</span>`;
+  return `<article class="card">
+    <div><strong>${esc(it.advertiser?.name || '—')}</strong></div>
+    <div class="meta">${esc(it.format || '—')} · ${esc(it.status || '—')} · started ${esc(dayOf(it.startedAt))} · run ${esc(days(it.runDays))}</div>
+    <div class="meta">CTA ${esc(it.ctaText || '—')}</div>
+    <div class="hook">${esc(truncate(it.hook, 100) || '—')}</div>
+    <div>${url}</div>
+  </article>`;
+}
+
+function shelf(r) {
+  const badge = r.kind === 'feature'
+    ? `<span class="badge">feature</span>`
+    : `<span class="badge adv">advertiser</span>`;
+  let standing = '';
+  if (r.advertiser) {
+    const a = r.advertiser;
+    standing = `<div class="standing">Standing: live ${fmt(a.liveAds)} / total ${fmt(a.totalAds)}, new 7d ${fmt(a.newLast7Days)}, live &gt;30d ${fmt(a.liveBeyond30Days)}, median ${days(a.medianRunDays)}, longest ${days(a.longestRunDays)}. Mix: ${esc(mixText(a.formatMix))}. Top CTA: ${esc(a.topCta || '—')}.</div>`;
+  }
+  const cards = r.items.length
+    ? `<div class="rail">${r.items.map(card).join('')}</div>`
+    : `<p class="muted">No creatives on this shelf in the response.</p>`;
+  return `<section class="shelf">
+    <h3>${badge}${esc(r.title || r.key)}</h3>
+    ${r.subtitle ? `<p class="muted">${esc(r.subtitle)}</p>` : ''}
+    ${standing}
+    <p class="muted">${fmt(r.items.length)} on this shelf · <strong>${fmt(r.totalItems)} in all</strong></p>
+    ${cards}
+  </section>`;
+}
+
+function render() {
+  $('err').textContent = ''; $('out').innerHTML = '';
+  let raw, prev = null;
+  try { raw = JSON.parse($('in').value); } catch (e) { $('err').textContent = 'That is not valid JSON: ' + e.message; return; }
+  if ($('prev').value.trim()) { try { prev = JSON.parse($('prev').value); } catch (e) { $('err').textContent = 'The saved report is not valid JSON: ' + e.message; return; } }
+  try { rep = toReport(raw); } catch (e) { $('err').textContent = e.message; return; }
+  let d = null;
+  try { d = prev ? diff(rep, toReport(prev)) : null; } catch (e) { $('err').textContent = 'The saved report: ' + e.message; return; }
+  const t = rep.totals;
+  let h = diffHtml(d);
+  h += `<div class="kpi"><div><b>${fmt(t.ads)}</b>ads collected</div><div><b>${fmt(t.liveAds)}</b>live now</div><div><b>${fmt(t.newAdsLast7Days)}</b>new in 7 days</div><div><b>${t.halfLifeDays ?? '—'}</b>half-life (days)</div><div><b>${days(t.medianRunDays)}</b>median run</div><div><b>${fmt(t.liveBeyond60Days)}</b>live beyond 60 days</div></div>`;
+  const ins = rep.insights;
+  h += `<div class="box"><strong>Highlights</strong>
+    ${ins.busiestByLive.length ? `<p>Busiest by live ads: ${ins.busiestByLive.map((a) => `${esc(a.name)} (${fmt(a.liveAds)})`).join(', ')}</p>` : ''}
+    ${ins.longestMedian.length ? `<p>Longest median: ${ins.longestMedian.map((a) => `${esc(a.name)} (${days(a.medianRunDays)})`).join(', ')}</p>` : ''}
+    ${ins.mostNew7d.length ? `<p>Most new 7d: ${ins.mostNew7d.map((a) => `${esc(a.name)} (${fmt(a.newLast7Days)})`).join(', ')}</p>` : ''}
+    ${ins.biggestShelves.length ? `<p>Biggest shelves: ${ins.biggestShelves.map((s) => `${esc(s.title)} (${fmt(s.totalItems)})`).join(', ')}</p>` : ''}
+  </div>`;
+  h += rep.rails.map(shelf).join('');
+  $('out').innerHTML = h;
+  $('csv').disabled = false;
+}
+
+$('go').onclick = render;
+$('ex').onclick = async () => {
+  $('in').value = await (await fetch('examples/rails.json')).text();
+  $('prev').value = await (await fetch('examples/previous.json')).text();
+  render();
+};
+$('csv').onclick = () => {
+  const url = URL.createObjectURL(new Blob([toCsv(rep)], { type: 'text/csv' }));
+  Object.assign(document.createElement('a'), { href: url, download: `paid-ad-rails-${new Date().toISOString().slice(0, 10)}.csv` }).click();
+  URL.revokeObjectURL(url);
+};
+</script>
+</body>
+</html>

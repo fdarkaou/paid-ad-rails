@@ -1,0 +1,854 @@
+{
+  "generatedAt": "2026-11-02T09:00:00.000Z",
+  "rails": [
+    {
+      "kind": "feature",
+      "key": "launched-this-week",
+      "title": "Launched this week",
+      "subtitle": "49 new creatives from 4 advertisers \u00b7 27 Oct \u2013 2 Nov",
+      "advertiser": null,
+      "totalItems": 49,
+      "items": [
+        {
+          "id": "aaaaaaaa-1111-4111-8111-111111111111",
+          "canonicalKey": "paid:meta:new-1",
+          "source": "paid",
+          "platform": "meta",
+          "archiveId": "new-1",
+          "advertiser": {
+            "externalId": "example-fit",
+            "name": "Example Fitness"
+          },
+          "status": "active",
+          "startedAt": "2026-10-30T00:00:00.000Z",
+          "endedAt": null,
+          "discoveredAt": "2026-10-30T18:00:00.000Z",
+          "sourceUrl": "https://facebook.com/ads/library?id=new-1",
+          "creative": {
+            "format": "video",
+            "hook": "New week, new PR. Log it in under 10 seconds.",
+            "body": "Track workouts without a spreadsheet. Start free today.",
+            "title": null,
+            "description": null,
+            "ctaText": "Download",
+            "imageUrls": [],
+            "videoUrls": [
+              "https://cdn.example/video-1.mp4"
+            ],
+            "units": []
+          },
+          "productLink": {
+            "kind": "apple_app_store",
+            "name": "Example Fitness",
+            "url": "https://apps.apple.com/app/id1001",
+            "externalId": "1001",
+            "confidence": "verified"
+          },
+          "destination": {
+            "kind": "app_store",
+            "url": "https://apps.apple.com/app/id1001",
+            "host": "apps.apple.com",
+            "page": "apps.apple.com/app/id1001",
+            "appStoreId": "1001"
+          },
+          "productIconUrl": null,
+          "performance": {
+            "kind": "unavailable"
+          },
+          "saved": false
+        },
+        {
+          "id": "aaaaaaaa-2222-4222-8222-222222222222",
+          "canonicalKey": "paid:tiktok:new-2",
+          "source": "paid",
+          "platform": "tiktok",
+          "archiveId": "new-2",
+          "advertiser": {
+            "externalId": "example-meal",
+            "name": "Example Meal Planner"
+          },
+          "status": "active",
+          "startedAt": "2026-10-29T00:00:00.000Z",
+          "endedAt": null,
+          "discoveredAt": "2026-10-29T12:00:00.000Z",
+          "sourceUrl": "https://library.tiktok.com/ads?id=new-2",
+          "creative": {
+            "format": "image",
+            "hook": "Plan five dinners before Sunday. Grocery list included.",
+            "body": "Track workouts without a spreadsheet. Start free today.",
+            "title": null,
+            "description": null,
+            "ctaText": "Learn more",
+            "imageUrls": [
+              "https://cdn.example/img-2.jpg"
+            ],
+            "videoUrls": [],
+            "units": []
+          },
+          "productLink": {
+            "kind": "apple_app_store",
+            "name": "Example Fitness",
+            "url": "https://apps.apple.com/app/id1001",
+            "externalId": "1001",
+            "confidence": "verified"
+          },
+          "destination": {
+            "kind": "app_store",
+            "url": "https://apps.apple.com/app/id1001",
+            "host": "apps.apple.com",
+            "page": "apps.apple.com/app/id1001",
+            "appStoreId": "1001"
+          },
+          "productIconUrl": null,
+          "performance": {
+            "kind": "unavailable"
+          },
+          "saved": false
+        },
+        {
+          "id": "aaaaaaaa-3333-4333-8333-333333333333",
+          "canonicalKey": "paid:meta:new-3",
+          "source": "paid",
+          "platform": "meta",
+          "archiveId": "new-3",
+          "advertiser": {
+            "externalId": "example-sleep",
+            "name": "Example Sleep"
+          },
+          "status": "active",
+          "startedAt": "2026-10-28T00:00:00.000Z",
+          "endedAt": null,
+          "discoveredAt": "2026-09-06T12:00:00.000Z",
+          "sourceUrl": "https://facebook.com/ads/library?id=new-3",
+          "creative": {
+            "format": "carousel",
+            "hook": "Wind-down sounds that actually help you fall asleep.",
+            "body": "Track workouts without a spreadsheet. Start free today.",
+            "title": null,
+            "description": null,
+            "ctaText": "Install now",
+            "imageUrls": [],
+            "videoUrls": [
+              "https://cdn.example/video-1.mp4"
+            ],
+            "units": []
+          },
+          "productLink": {
+            "kind": "apple_app_store",
+            "name": "Example Fitness",
+            "url": "https://apps.apple.com/app/id1001",
+            "externalId": "1001",
+            "confidence": "verified"
+          },
+          "destination": {
+            "kind": "app_store",
+            "url": "https://apps.apple.com/app/id1001",
+            "host": "apps.apple.com",
+            "page": "apps.apple.com/app/id1001",
+            "appStoreId": "1001"
+          },
+          "productIconUrl": null,
+          "performance": {
+            "kind": "unavailable"
+          },
+          "saved": false
+        }
+      ]
+    },
+    {
+      "kind": "feature",
+      "key": "still-live-after-90-days",
+      "title": "Still live after 90 days",
+      "subtitle": "The advertiser has kept paying for these",
+      "advertiser": null,
+      "totalItems": 88,
+      "items": [
+        {
+          "id": "bbbbbbbb-1111-4111-8111-111111111111",
+          "canonicalKey": "paid:meta:long-1",
+          "source": "paid",
+          "platform": "meta",
+          "archiveId": "long-1",
+          "advertiser": {
+            "externalId": "example-fit",
+            "name": "Example Fitness"
+          },
+          "status": "active",
+          "startedAt": "2026-01-09T08:00:00.000Z",
+          "endedAt": null,
+          "discoveredAt": "2026-02-01T10:00:00.000Z",
+          "sourceUrl": "https://facebook.com/ads/library?id=long-1",
+          "creative": {
+            "format": "video",
+            "hook": "One habit that stuck for 90 days: logging every session.",
+            "body": "Track workouts without a spreadsheet. Start free today.",
+            "title": null,
+            "description": null,
+            "ctaText": "Download",
+            "imageUrls": [],
+            "videoUrls": [
+              "https://cdn.example/video-1.mp4"
+            ],
+            "units": []
+          },
+          "productLink": {
+            "kind": "apple_app_store",
+            "name": "Example Fitness",
+            "url": "https://apps.apple.com/app/id1001",
+            "externalId": "1001",
+            "confidence": "verified"
+          },
+          "destination": {
+            "kind": "app_store",
+            "url": "https://apps.apple.com/app/id1001",
+            "host": "apps.apple.com",
+            "page": "apps.apple.com/app/id1001",
+            "appStoreId": "1001"
+          },
+          "productIconUrl": null,
+          "performance": {
+            "kind": "unavailable"
+          },
+          "saved": false
+        },
+        {
+          "id": "bbbbbbbb-2222-4222-8222-222222222222",
+          "canonicalKey": "paid:meta:long-2",
+          "source": "paid",
+          "platform": "meta",
+          "archiveId": "long-2",
+          "advertiser": {
+            "externalId": "example-meal",
+            "name": "Example Meal Planner"
+          },
+          "status": "active",
+          "startedAt": "2025-12-01T00:00:00.000Z",
+          "endedAt": null,
+          "discoveredAt": "2026-09-06T12:00:00.000Z",
+          "sourceUrl": "https://facebook.com/ads/library?id=long-2",
+          "creative": {
+            "format": "image",
+            "hook": "Still the same grocery list people save every Sunday.",
+            "body": "Track workouts without a spreadsheet. Start free today.",
+            "title": null,
+            "description": null,
+            "ctaText": "Learn more",
+            "imageUrls": [
+              "https://cdn.example/img-long.jpg"
+            ],
+            "videoUrls": [],
+            "units": []
+          },
+          "productLink": {
+            "kind": "apple_app_store",
+            "name": "Example Fitness",
+            "url": "https://apps.apple.com/app/id1001",
+            "externalId": "1001",
+            "confidence": "verified"
+          },
+          "destination": {
+            "kind": "app_store",
+            "url": "https://apps.apple.com/app/id1001",
+            "host": "apps.apple.com",
+            "page": "apps.apple.com/app/id1001",
+            "appStoreId": "1001"
+          },
+          "productIconUrl": null,
+          "performance": {
+            "kind": "unavailable"
+          },
+          "saved": false
+        },
+        {
+          "id": "bbbbbbbb-3333-4333-8333-333333333333",
+          "canonicalKey": "paid:meta:long-3",
+          "source": "paid",
+          "platform": "meta",
+          "archiveId": "long-3",
+          "advertiser": {
+            "externalId": "example-focus",
+            "name": "Example Focus"
+          },
+          "status": "active",
+          "startedAt": "2025-11-15T00:00:00.000Z",
+          "endedAt": null,
+          "discoveredAt": "2026-09-06T12:00:00.000Z",
+          "sourceUrl": "https://facebook.com/ads/library?id=long-3",
+          "creative": {
+            "format": "video",
+            "hook": "Deep work timer people have kept running since November.",
+            "body": "Track workouts without a spreadsheet. Start free today.",
+            "title": null,
+            "description": null,
+            "ctaText": "Try free",
+            "imageUrls": [],
+            "videoUrls": [
+              "https://cdn.example/video-1.mp4"
+            ],
+            "units": []
+          },
+          "productLink": {
+            "kind": "apple_app_store",
+            "name": "Example Fitness",
+            "url": "https://apps.apple.com/app/id1001",
+            "externalId": "1001",
+            "confidence": "verified"
+          },
+          "destination": {
+            "kind": "app_store",
+            "url": "https://apps.apple.com/app/id1001",
+            "host": "apps.apple.com",
+            "page": "apps.apple.com/app/id1001",
+            "appStoreId": "1001"
+          },
+          "productIconUrl": null,
+          "performance": {
+            "kind": "unavailable"
+          },
+          "saved": false
+        }
+      ]
+    },
+    {
+      "kind": "advertiser",
+      "key": "advertiser:example-fit",
+      "title": "Example Fitness",
+      "subtitle": null,
+      "advertiser": {
+        "advertiserExternalId": "example-fit",
+        "name": "Example Fitness",
+        "productExternalId": "1001",
+        "productIconUrl": null,
+        "category": "Health & Fitness",
+        "liveAds": 42,
+        "totalAds": 88,
+        "newLast7Days": 6,
+        "liveBeyond30Days": 18,
+        "weeklyNewAds": [
+          2,
+          3,
+          1,
+          4,
+          2,
+          5,
+          3,
+          4,
+          2,
+          6,
+          5,
+          6
+        ],
+        "medianRunDays": 14,
+        "longestRunDays": 96,
+        "formatMix": {
+          "video": 60,
+          "image": 20,
+          "carousel": 5,
+          "dynamic": 3,
+          "unknown": 0
+        },
+        "topCta": "Download",
+        "topDestinationKind": "app_store",
+        "storeRating": 4.6,
+        "storeRatingCount": 12000
+      },
+      "totalItems": 42,
+      "items": [
+        {
+          "id": "cccccccc-1111-4111-8111-111111111111",
+          "canonicalKey": "paid:meta:fit-1",
+          "source": "paid",
+          "platform": "meta",
+          "archiveId": "fit-1",
+          "advertiser": {
+            "externalId": "example-fit",
+            "name": "Example Fitness"
+          },
+          "status": "active",
+          "startedAt": "2026-09-01T00:00:00.000Z",
+          "endedAt": null,
+          "discoveredAt": "2026-09-06T12:00:00.000Z",
+          "sourceUrl": "https://facebook.com/ads/library?id=fit-1",
+          "creative": {
+            "format": "video",
+            "hook": "A useful hook about tracking workouts without a spreadsheet",
+            "body": "Track workouts without a spreadsheet. Start free today.",
+            "title": null,
+            "description": null,
+            "ctaText": "Download",
+            "imageUrls": [],
+            "videoUrls": [
+              "https://cdn.example/video-1.mp4"
+            ],
+            "units": []
+          },
+          "productLink": {
+            "kind": "apple_app_store",
+            "name": "Example Fitness",
+            "url": "https://apps.apple.com/app/id1001",
+            "externalId": "1001",
+            "confidence": "verified"
+          },
+          "destination": {
+            "kind": "app_store",
+            "url": "https://apps.apple.com/app/id1001",
+            "host": "apps.apple.com",
+            "page": "apps.apple.com/app/id1001",
+            "appStoreId": "1001"
+          },
+          "productIconUrl": null,
+          "performance": {
+            "kind": "unavailable"
+          },
+          "saved": false
+        },
+        {
+          "id": "cccccccc-2222-4222-8222-222222222222",
+          "canonicalKey": "paid:meta:fit-2",
+          "source": "paid",
+          "platform": "meta",
+          "archiveId": "fit-2",
+          "advertiser": {
+            "externalId": "example-fit",
+            "name": "Example Fitness"
+          },
+          "status": "active",
+          "startedAt": "2026-07-15T00:00:00.000Z",
+          "endedAt": null,
+          "discoveredAt": "2026-09-06T12:00:00.000Z",
+          "sourceUrl": "https://facebook.com/ads/library?id=fit-2",
+          "creative": {
+            "format": "image",
+            "hook": "Form tips from coaches, not random clips.",
+            "body": "Track workouts without a spreadsheet. Start free today.",
+            "title": null,
+            "description": null,
+            "ctaText": "Download",
+            "imageUrls": [
+              "https://cdn.example/fit-2.jpg"
+            ],
+            "videoUrls": [],
+            "units": []
+          },
+          "productLink": {
+            "kind": "apple_app_store",
+            "name": "Example Fitness",
+            "url": "https://apps.apple.com/app/id1001",
+            "externalId": "1001",
+            "confidence": "verified"
+          },
+          "destination": {
+            "kind": "app_store",
+            "url": "https://apps.apple.com/app/id1001",
+            "host": "apps.apple.com",
+            "page": "apps.apple.com/app/id1001",
+            "appStoreId": "1001"
+          },
+          "productIconUrl": null,
+          "performance": {
+            "kind": "unavailable"
+          },
+          "saved": false
+        },
+        {
+          "id": "cccccccc-3333-4333-8333-333333333333",
+          "canonicalKey": "paid:meta:fit-3",
+          "source": "paid",
+          "platform": "meta",
+          "archiveId": "fit-3",
+          "advertiser": {
+            "externalId": "example-fit",
+            "name": "Example Fitness"
+          },
+          "status": "inactive",
+          "startedAt": "2026-06-01T00:00:00.000Z",
+          "endedAt": "2026-06-21T00:00:00.000Z",
+          "discoveredAt": "2026-09-06T12:00:00.000Z",
+          "sourceUrl": "https://facebook.com/ads/library?id=fit-3",
+          "creative": {
+            "format": "video",
+            "hook": "Summer challenge (ended).",
+            "body": "Track workouts without a spreadsheet. Start free today.",
+            "title": null,
+            "description": null,
+            "ctaText": "Shop now",
+            "imageUrls": [],
+            "videoUrls": [
+              "https://cdn.example/video-1.mp4"
+            ],
+            "units": []
+          },
+          "productLink": {
+            "kind": "apple_app_store",
+            "name": "Example Fitness",
+            "url": "https://apps.apple.com/app/id1001",
+            "externalId": "1001",
+            "confidence": "verified"
+          },
+          "destination": {
+            "kind": "app_store",
+            "url": "https://apps.apple.com/app/id1001",
+            "host": "apps.apple.com",
+            "page": "apps.apple.com/app/id1001",
+            "appStoreId": "1001"
+          },
+          "productIconUrl": null,
+          "performance": {
+            "kind": "unavailable"
+          },
+          "saved": false
+        }
+      ]
+    },
+    {
+      "kind": "advertiser",
+      "key": "advertiser:example-meal",
+      "title": "Example Meal Planner",
+      "subtitle": null,
+      "advertiser": {
+        "advertiserExternalId": "example-meal",
+        "name": "Example Meal Planner",
+        "productExternalId": "1002",
+        "productIconUrl": null,
+        "category": "Food & Drink",
+        "liveAds": 28,
+        "totalAds": 61,
+        "newLast7Days": 3,
+        "liveBeyond30Days": 11,
+        "weeklyNewAds": [
+          1,
+          2,
+          1,
+          3,
+          2,
+          1,
+          2,
+          3,
+          2,
+          4,
+          3,
+          3
+        ],
+        "medianRunDays": 11,
+        "longestRunDays": 140,
+        "formatMix": {
+          "video": 30,
+          "image": 25,
+          "carousel": 4,
+          "dynamic": 2,
+          "unknown": 0
+        },
+        "topCta": "Learn more",
+        "topDestinationKind": "app_store",
+        "storeRating": 4.4,
+        "storeRatingCount": 8000
+      },
+      "totalItems": 28,
+      "items": [
+        {
+          "id": "dddddddd-1111-4111-8111-111111111111",
+          "canonicalKey": "paid:meta:meal-1",
+          "source": "paid",
+          "platform": "meta",
+          "archiveId": "meal-1",
+          "advertiser": {
+            "externalId": "example-meal",
+            "name": "Example Meal Planner"
+          },
+          "status": "active",
+          "startedAt": "2026-08-20T00:00:00.000Z",
+          "endedAt": null,
+          "discoveredAt": "2026-09-06T12:00:00.000Z",
+          "sourceUrl": "https://facebook.com/ads/library?id=meal-1",
+          "creative": {
+            "format": "image",
+            "hook": "Five dinners, one grocery trip.",
+            "body": "Track workouts without a spreadsheet. Start free today.",
+            "title": null,
+            "description": null,
+            "ctaText": "Learn more",
+            "imageUrls": [
+              "https://cdn.example/meal-1.jpg"
+            ],
+            "videoUrls": [],
+            "units": []
+          },
+          "productLink": {
+            "kind": "apple_app_store",
+            "name": "Example Meal Planner",
+            "url": "https://apps.apple.com/app/id1002",
+            "externalId": "1002",
+            "confidence": "verified"
+          },
+          "destination": {
+            "kind": "app_store",
+            "url": "https://apps.apple.com/app/id1002",
+            "host": "apps.apple.com",
+            "page": "apps.apple.com/app/id1002",
+            "appStoreId": "1002"
+          },
+          "productIconUrl": null,
+          "performance": {
+            "kind": "unavailable"
+          },
+          "saved": false
+        },
+        {
+          "id": "dddddddd-2222-4222-8222-222222222222",
+          "canonicalKey": "paid:tiktok:meal-2",
+          "source": "paid",
+          "platform": "tiktok",
+          "archiveId": "meal-2",
+          "advertiser": {
+            "externalId": "example-meal",
+            "name": "Example Meal Planner"
+          },
+          "status": "active",
+          "startedAt": "2026-09-10T00:00:00.000Z",
+          "endedAt": null,
+          "discoveredAt": "2026-09-06T12:00:00.000Z",
+          "sourceUrl": "https://library.tiktok.com/ads?id=meal-2",
+          "creative": {
+            "format": "video",
+            "hook": "Batch-cook Sunday with a timer in the app.",
+            "body": "Track workouts without a spreadsheet. Start free today.",
+            "title": null,
+            "description": null,
+            "ctaText": "Learn more",
+            "imageUrls": [],
+            "videoUrls": [
+              "https://cdn.example/video-1.mp4"
+            ],
+            "units": []
+          },
+          "productLink": {
+            "kind": "apple_app_store",
+            "name": "Example Meal Planner",
+            "url": "https://apps.apple.com/app/id1002",
+            "externalId": "1002",
+            "confidence": "verified"
+          },
+          "destination": {
+            "kind": "app_store",
+            "url": "https://apps.apple.com/app/id1001",
+            "host": "apps.apple.com",
+            "page": "apps.apple.com/app/id1001",
+            "appStoreId": "1001"
+          },
+          "productIconUrl": null,
+          "performance": {
+            "kind": "unavailable"
+          },
+          "saved": false
+        }
+      ]
+    },
+    {
+      "kind": "advertiser",
+      "key": "advertiser:example-focus",
+      "title": "Example Focus",
+      "subtitle": null,
+      "advertiser": {
+        "advertiserExternalId": "example-focus",
+        "name": "Example Focus",
+        "productExternalId": "1003",
+        "productIconUrl": null,
+        "category": "Productivity",
+        "liveAds": 19,
+        "totalAds": 40,
+        "newLast7Days": 1,
+        "liveBeyond30Days": 14,
+        "weeklyNewAds": [
+          0,
+          1,
+          0,
+          2,
+          1,
+          0,
+          1,
+          1,
+          0,
+          2,
+          1,
+          1
+        ],
+        "medianRunDays": 28,
+        "longestRunDays": 188,
+        "formatMix": {
+          "video": 25,
+          "image": 10,
+          "carousel": 3,
+          "dynamic": 2,
+          "unknown": 0
+        },
+        "topCta": "Try free",
+        "topDestinationKind": "app_store",
+        "storeRating": 4.8,
+        "storeRatingCount": 5400
+      },
+      "totalItems": 19,
+      "items": [
+        {
+          "id": "eeeeeeee-1111-4111-8111-111111111111",
+          "canonicalKey": "paid:meta:focus-1",
+          "source": "paid",
+          "platform": "meta",
+          "archiveId": "focus-1",
+          "advertiser": {
+            "externalId": "example-focus",
+            "name": "Example Focus"
+          },
+          "status": "active",
+          "startedAt": "2025-11-15T00:00:00.000Z",
+          "endedAt": null,
+          "discoveredAt": "2026-09-06T12:00:00.000Z",
+          "sourceUrl": "https://facebook.com/ads/library?id=focus-1",
+          "creative": {
+            "format": "video",
+            "hook": "Deep work timer people have kept running since November.",
+            "body": "Track workouts without a spreadsheet. Start free today.",
+            "title": null,
+            "description": null,
+            "ctaText": "Try free",
+            "imageUrls": [],
+            "videoUrls": [
+              "https://cdn.example/video-1.mp4"
+            ],
+            "units": []
+          },
+          "productLink": {
+            "kind": "apple_app_store",
+            "name": "Example Focus",
+            "url": "https://apps.apple.com/app/id1003",
+            "externalId": "1003",
+            "confidence": "verified"
+          },
+          "destination": {
+            "kind": "app_store",
+            "url": "https://apps.apple.com/app/id1001",
+            "host": "apps.apple.com",
+            "page": "apps.apple.com/app/id1001",
+            "appStoreId": "1001"
+          },
+          "productIconUrl": null,
+          "performance": {
+            "kind": "unavailable"
+          },
+          "saved": false
+        }
+      ]
+    },
+    {
+      "kind": "advertiser",
+      "key": "advertiser:example-sleep",
+      "title": "Example Sleep",
+      "subtitle": null,
+      "advertiser": {
+        "advertiserExternalId": "example-sleep",
+        "name": "Example Sleep",
+        "productExternalId": "1004",
+        "productIconUrl": null,
+        "category": "Health & Fitness",
+        "liveAds": 15,
+        "totalAds": 33,
+        "newLast7Days": 4,
+        "liveBeyond30Days": 5,
+        "weeklyNewAds": [
+          1,
+          1,
+          2,
+          1,
+          3,
+          2,
+          1,
+          2,
+          3,
+          2,
+          4,
+          4
+        ],
+        "medianRunDays": 8,
+        "longestRunDays": 54,
+        "formatMix": {
+          "video": 18,
+          "image": 12,
+          "carousel": 2,
+          "dynamic": 1,
+          "unknown": 0
+        },
+        "topCta": "Install now",
+        "topDestinationKind": "app_store",
+        "storeRating": 4.2,
+        "storeRatingCount": 3100
+      },
+      "totalItems": 15,
+      "items": [
+        {
+          "id": "ffffffff-1111-4111-8111-111111111111",
+          "canonicalKey": "paid:meta:sleep-1",
+          "source": "paid",
+          "platform": "meta",
+          "archiveId": "sleep-1",
+          "advertiser": {
+            "externalId": "example-sleep",
+            "name": "Example Sleep"
+          },
+          "status": "active",
+          "startedAt": "2026-10-28T00:00:00.000Z",
+          "endedAt": null,
+          "discoveredAt": "2026-09-06T12:00:00.000Z",
+          "sourceUrl": "https://facebook.com/ads/library?id=sleep-1",
+          "creative": {
+            "format": "carousel",
+            "hook": "Wind-down sounds that actually help you fall asleep.",
+            "body": "Track workouts without a spreadsheet. Start free today.",
+            "title": null,
+            "description": null,
+            "ctaText": "Install now",
+            "imageUrls": [],
+            "videoUrls": [
+              "https://cdn.example/video-1.mp4"
+            ],
+            "units": []
+          },
+          "productLink": {
+            "kind": "apple_app_store",
+            "name": "Example Sleep",
+            "url": "https://apps.apple.com/app/id1004",
+            "externalId": "1004",
+            "confidence": "verified"
+          },
+          "destination": {
+            "kind": "app_store",
+            "url": "https://apps.apple.com/app/id1001",
+            "host": "apps.apple.com",
+            "page": "apps.apple.com/app/id1001",
+            "appStoreId": "1001"
+          },
+          "productIconUrl": null,
+          "performance": {
+            "kind": "unavailable"
+          },
+          "saved": false
+        }
+      ]
+    }
+  ],
+  "totals": {
+    "ads": 1260,
+    "liveAds": 372,
+    "advertisers": 12,
+    "liveAdvertisers": 9,
+    "newAdsLast7Days": 49,
+    "advertisersShippingLast7Days": 4,
+    "stoppedLast7Days": 31,
+    "halfLifeDays": 17,
+    "stillRunningAt30Days": 0.32,
+    "medianRunDays": 9,
+    "longestRunDays": 188,
+    "liveBeyond60Days": 41,
+    "reachDisclosedAds": 0,
+    "unlinkedAds": 25,
+    "uncategorizedLiveAds": 20
+  }
+}

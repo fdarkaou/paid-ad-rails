@@ -1,0 +1,14 @@
+{
+  "name": "paid-ad-rails",
+  "version": "1.0.0",
+  "description": "Shelf digest for PeekPanda's paid-ad rails: feature shelves (launched this week, still live after 90 days) and per-advertiser shelves with standing stats and creatives. Markdown/CSV/JSON, optional Slack or Discord post.",
+  "type": "module",
+  "bin": { "paid-ad-rails": "cli.js" },
+  "scripts": { "test": "node --test test/" },
+  "engines": { "node": ">=18" },
+  "license": "MIT",
+  "author": "Fekri Darkaoui",
+  "repository": { "type": "git", "url": "https://github.com/fdarkaou/paid-ad-rails.git" },
+  "homepage": "https://fdarkaou.github.io/paid-ad-rails/",
+  "keywords": ["paid-ads", "meta-ads", "tiktok-ads", "ad-shelves", "ad-rails", "aso", "ios", "peekpanda"]
+}
